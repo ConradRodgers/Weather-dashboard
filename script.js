@@ -8,16 +8,48 @@ $("#searchButton").click(function() {
   city = $("input[name=city]").val();
   var queryURL =
     "http://api.openweathermap.org/data/2.5/weather?q=" + city + apiKey + units;
-  $ajax({
+  $.ajax({
     url: queryURL,
     method: "GET"
-  });.then(function(response){
-    $(#'city').html(response.name)
+  }).then(function(response) {
+    console.log(response);
+    $("#currentWeather").html("");
 
-  })
+    $("#currentWeather").append(
+      "<p> Humidity: " + response.main.humidity + "</p>"
+    );
+    $("#currentWeather").append("<p> Location: " + response.name + "</p>");
+    $("#currentWeather").append(
+      "<p> Current Temp: " + response.main.temp + "</p>"
+    );
+
+    //   city = $("input[name=city]").val();
+    // var queryURL =
+    //   "api.openweathermap.org/data/2.5/forecast?q=" + city + apiKey + units;
+    // $.ajax({
+    //   url: queryURL,
+    //   method: "GET"
+    // }).then(function(response) {
+    //   console.log(response);
+    //   $("#currentWeather").html("");
+
+    //   $("#forcast")
+    // };
+
+    $("#city").html(response.name);
+  });
+
+  // function() {
+  //   var queryURL = "api.openweathermap.org/data/2.5/forecast?q=" + city + apiKey + units;
+  //   $.ajax ({
+  //     url: queryURL,
+  //     method:"GET"
+  //   })
+  // }
+
   //html append
 });
-
+document.getElementById("searchButton").click();
 function liveWeather(city) {}
 
 // GIVEN a weather dashboard with form inputs  X
