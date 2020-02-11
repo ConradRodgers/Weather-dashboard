@@ -7,7 +7,7 @@ $("#searchButton").click(function() {
   //alert("searched city");
   city = $("input[name=city]").val();
   var queryURL =
-    "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     apiKey +
     units;
