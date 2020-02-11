@@ -7,7 +7,10 @@ $("#searchButton").click(function() {
   //alert("searched city");
   city = $("input[name=city]").val();
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?q=" + city + apiKey + units;
+    "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    apiKey +
+    units;
   $.ajax({
     url: queryURL,
     method: "GET"
